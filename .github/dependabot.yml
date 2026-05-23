@@ -11,3 +11,8 @@ updates:
       github-actions:
         patterns:
           - "*"
+
+  - package-ecosystem: docker
+    directory: /.circleci/images/primary
+    schedule:
+      interval: daily
