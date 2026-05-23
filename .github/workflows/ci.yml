@@ -76,7 +76,12 @@ jobs:
       CXX: ${{ matrix.cxx }}
       FIXME__LZ4_CI_IGNORE : ' echo Error.  But we ignore it for now.'
     steps:
-    - uses: actions/checkout@v2 # https://github.com/actions/checkout
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@ab7a9404c0f3da075243ca237b5fac12c98deaa5 # v2.19.3
+      with:
+        egress-policy: audit
+
+    - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
 
     - name: apt-get install
       run: |
@@ -169,7 +174,12 @@ jobs:
     name: Benchmark
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2 # https://github.com/actions/checkout
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@ab7a9404c0f3da075243ca237b5fac12c98deaa5 # v2.19.3
+      with:
+        egress-policy: audit
+
+    - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
 
     - name: apt-get install
       run: |
@@ -196,7 +206,12 @@ jobs:
     name: Fuzzer test
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2 # https://github.com/actions/checkout
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@ab7a9404c0f3da075243ca237b5fac12c98deaa5 # v2.19.3
+      with:
+        egress-policy: audit
+
+    - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
 
     - name: apt-get install
       run: |
@@ -217,7 +232,12 @@ jobs:
     name: LZ4 versions test
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2 # https://github.com/actions/checkout
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@ab7a9404c0f3da075243ca237b5fac12c98deaa5 # v2.19.3
+      with:
+        egress-policy: audit
+
+    - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
 
     - name: apt-get install
       run: |
@@ -232,7 +252,12 @@ jobs:
     name: LZ4 frame test
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2 # https://github.com/actions/checkout
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@ab7a9404c0f3da075243ca237b5fac12c98deaa5 # v2.19.3
+      with:
+        egress-policy: audit
+
+    - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
 
     - name: apt-get install
       run: |
@@ -251,7 +276,12 @@ jobs:
     name: Custom LZ4_DISTANCE_MAX
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2 # https://github.com/actions/checkout
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@ab7a9404c0f3da075243ca237b5fac12c98deaa5 # v2.19.3
+      with:
+        egress-policy: audit
+
+    - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
 
     - name: custom LZ4_DISTANCE_MAX
       run: |
@@ -278,7 +308,12 @@ jobs:
     name: make cppcheck
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2 # https://github.com/actions/checkout
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@ab7a9404c0f3da075243ca237b5fac12c98deaa5 # v2.19.3
+      with:
+        egress-policy: audit
+
+    - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
     - name: apt-get install
       run: |
         sudo apt-get update
@@ -297,7 +332,12 @@ jobs:
     name: make staticAnalyze
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2 # https://github.com/actions/checkout
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@ab7a9404c0f3da075243ca237b5fac12c98deaa5 # v2.19.3
+      with:
+        egress-policy: audit
+
+    - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
     - name: apt-get install
       run: |
         sudo apt-get update
@@ -319,7 +359,12 @@ jobs:
     name: valgrind
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2 # https://github.com/actions/checkout
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@ab7a9404c0f3da075243ca237b5fac12c98deaa5 # v2.19.3
+      with:
+        egress-policy: audit
+
+    - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
     - name: apt-get install
       run: |
         sudo apt-get update
@@ -340,7 +385,12 @@ jobs:
     env:                        # Set environment variables
       FIXME__LZ4_CI_IGNORE : ' echo Error.  But we ignore it for now.'
     steps:
-    - uses: actions/checkout@v2 # https://github.com/actions/checkout
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@ab7a9404c0f3da075243ca237b5fac12c98deaa5 # v2.19.3
+      with:
+        egress-policy: audit
+
+    - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
 
     - name: ubsan
       #########################################################
@@ -357,7 +407,12 @@ jobs:
     env:                        # Set environment variables
       FIXME__LZ4_CI_IGNORE : ' echo Error.  But we ignore it for now.'
     steps:
-    - uses: actions/checkout@v2 # https://github.com/actions/checkout
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@ab7a9404c0f3da075243ca237b5fac12c98deaa5 # v2.19.3
+      with:
+        egress-policy: audit
+
+    - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
 
     - name: apt-get install
       run: |
@@ -380,7 +435,12 @@ jobs:
     env:                        # Set environment variables
       FIXME__LZ4_CI_IGNORE : ' echo Error.  But we ignore it for now.'
     steps:
-    - uses: actions/checkout@v2 # https://github.com/actions/checkout
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@ab7a9404c0f3da075243ca237b5fac12c98deaa5 # v2.19.3
+      with:
+        egress-policy: audit
+
+    - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
 
     - name: setup
       run: sudo sysctl -w vm.mmap_min_addr=4096
@@ -437,7 +497,12 @@ jobs:
       XCC: ${{ matrix.xcc }}
       XEMU: ${{ matrix.xemu }}
     steps:
-    - uses: actions/checkout@v2 # https://github.com/actions/checkout
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@ab7a9404c0f3da075243ca237b5fac12c98deaa5 # v2.19.3
+      with:
+        egress-policy: audit
+
+    - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
 
     - name: apt-get install
       run: |
@@ -478,7 +543,12 @@ jobs:
     name: macOS
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@ab7a9404c0f3da075243ca237b5fac12c98deaa5 # v2.19.3
+      with:
+        egress-policy: audit
+
+    - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
 
     - name: Environment info
       run: |
@@ -511,7 +581,12 @@ jobs:
     name: make
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2 # https://github.com/actions/checkout
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@ab7a9404c0f3da075243ca237b5fac12c98deaa5 # v2.19.3
+      with:
+        egress-policy: audit
+
+    - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
 
     - name: Environment info
       run: |
@@ -526,7 +601,12 @@ jobs:
     name: make travis-install
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2 # https://github.com/actions/checkout
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@ab7a9404c0f3da075243ca237b5fac12c98deaa5 # v2.19.3
+      with:
+        egress-policy: audit
+
+    - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
 
     - name: travis-install
       run: make V=1 clean travis-install
@@ -542,7 +622,12 @@ jobs:
     name: cmake
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2 # https://github.com/actions/checkout
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@ab7a9404c0f3da075243ca237b5fac12c98deaa5 # v2.19.3
+      with:
+        egress-policy: audit
+
+    - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
 
     - name: Environment info
       run: |
@@ -563,7 +648,12 @@ jobs:
     name: make cmake
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2 # https://github.com/actions/checkout
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@ab7a9404c0f3da075243ca237b5fac12c98deaa5 # v2.19.3
+      with:
+        egress-policy: audit
+
+    - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
     - name: make cmake
       # V=1 for lz4 Makefile, VERBOSE=1 for cmake Makefile.
       run: make V=1 VERBOSE=1 clean cmake
@@ -574,8 +664,13 @@ jobs:
     name: Meson + Ninja
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2 # https://github.com/actions/checkout
-    - uses: actions/setup-python@v2 # https://github.com/actions/setup-python
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@ab7a9404c0f3da075243ca237b5fac12c98deaa5 # v2.19.3
+      with:
+        egress-policy: audit
+
+    - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
+    - uses: actions/setup-python@e9aba2c848f5ebd159c070c61ea2c4e2b122355e # v2.3.4
       with:
         python-version: '3.x'
 
@@ -621,7 +716,12 @@ jobs:
     name: git version tag checking for release
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@ab7a9404c0f3da075243ca237b5fac12c98deaa5 # v2.19.3
+      with:
+        egress-policy: audit
+
+    - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
     - name: make -C tests checkTag
       if: startsWith(github.ref, 'refs/tags/v')   # If git tag name starts with 'v'
       run: |
@@ -647,7 +747,12 @@ jobs:
 
     runs-on: ${{ matrix.os }}
     steps:
-    - uses: actions/checkout@v2
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@ab7a9404c0f3da075243ca237b5fac12c98deaa5 # v2.19.3
+      with:
+        egress-policy: audit
+
+    - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
 
     - name: init
       run: |
